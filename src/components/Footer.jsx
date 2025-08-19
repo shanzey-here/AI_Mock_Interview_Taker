@@ -12,7 +12,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white py-14 px-6">
+    <footer className="border-t-1 border-gray-800 text-white py-14 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Top Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 mb-14">
@@ -22,7 +22,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-3">
                 <span className="text-white font-bold text-sm">AI</span>
               </div>
-              <span className="text-xl font-semibold">AI-Mock Interview</span>
+              <span className="text-xl font-semibold">MockMate</span>
             </div>
 
             <h3 className="text-lg font-semibold mb-2">Join the newsletter</h3>
@@ -126,7 +126,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-gray-500 text-sm text-center">
-            © {new Date().getFullYear()} AI-Mock Interview. All rights reserved.
+            © {new Date().getFullYear()} MockMate Interview Assistant. All rights reserved.
           </div>
 
           {/* Social Icons */}
