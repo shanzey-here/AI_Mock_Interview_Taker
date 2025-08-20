@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Author from "./Author";
 import Tag from "./Tag";
 
@@ -11,7 +12,9 @@ function BlogCard({
   descriptionLines = 3,
   showArrow = false 
 }) {
-  const baseClasses = "group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] hover:bg-white/10";
+  const navigate = useNavigate();
+  
+  const baseClasses = "group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] hover:bg-white/10 cursor-pointer";
   
   const variants = {
     default: "h-full flex flex-col",
@@ -19,9 +22,21 @@ function BlogCard({
     minimal: "flex flex-col gap-4"
   };
 
+  const handleClick = () => {
+    navigate(`/article/${article.id}`);
+    // Ensure scroll to top happens immediately on navigation
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <div className={`${baseClasses} ${variants[variant]} ${className}`}>
-      {showImage && article.img && (
+    <div 
+      className={`${baseClasses} ${variants[variant]} ${className}`}
+      onClick={handleClick}
+    >
+      {showImage && article?.img && (
         <div className="aspect-video overflow-hidden">
           <img 
             src={article.img} 
